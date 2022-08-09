@@ -5,26 +5,18 @@ let calcular = document.getElementById("btn-calcular");
 let lista = document.getElementById("lista");
 let total = document.getElementById("total");
 let vaciar = document.getElementById("vaciar");
-
-/*arreglo string para cargar los productos, (vacío) sin cantidades*/
-
 let productos: string[] = [];
-
-/*arreglo number para cargar los precios, (vacío) sin cantidades*/
-
 let precios: number[] = [];
-/* arreglo para sumar el total*/
 let suma: number = 0;
 
-/*FUNCIÓN "const"- metodo push para agregar un elemento al final del arreglo (asignar evento), 
-es decir: cuando haga clik al arreglo producto (línea 10), le vamos a pushear el valor ingresado al imput "Producto" */
+//metodo push para agregar un elemento al final del arreglo (asignar evento), 
 const agregarAlCarrito = () => {
-  //let miproducto : string = producto.value
   productos.push(producto.value);
   precios.push(Number(precio.value));
 
   lista?.innerHTML += `<li>${producto.value} : $${precio.value}</li>`;
-  //vaciar los campos de entrada
+
+//vaciar los campos de entrada
   producto.value = "";
   precio.value = "";
 };

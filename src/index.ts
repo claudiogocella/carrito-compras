@@ -17,6 +17,7 @@ const agregarAlCarrito = () => {
   lista?.innerHTML += `<li>${producto.value} : $${precio.value}</li>`;
 
   total?.innerHTML = Number(suma.value);
+  //ver video frontend 7, 1hora 20
 
   //vaciar los campos de entrada
   producto.value = "";

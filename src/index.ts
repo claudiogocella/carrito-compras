@@ -1,32 +1,33 @@
-let producto = document.getElementById("producto");
-let precio = document.getElementById("precio");
-let agregar = document.getElementById("btn-agregar");
-let calcular = document.getElementById("btn-calcular");
-let lista = document.getElementById("lista");
+//let cargarProducto = document.getElementById("producto");
+//let ingresarPrecio = document.getElementById("precio");
+//let agregar = document.getElementById("btn-agregar");
+/* let calcularCompra = document.getElementById("calcular"); */
+let botonDescuento = document.getElementById("descuento");
+//let lista = document.getElementById("lista");
 let total = document.getElementById("total");
 let vaciar = document.getElementById("vaciar");
-let productos: string[] = [];
-let precios: number[] = [];
-let suma: number = 0;
+//let totalProductos: string[] = [];
+//let totalPrecios: number[] = [];
+//let suma: number = 0;
 
 //metodo push para agregar un elemento al final del arreglo (asignar evento),
 const agregarAlCarrito = () => {
-  productos.push(producto.value);
-  precios.push(Number(precio.value));
+  totalProductos.push(cargarProducto.value);
+  totalPrecios.push(Number(ingresarPrecio.value));
 
-  lista?.innerHTML += `<li>${producto.value} : $${precio.value}</li>`;
+  lista?.innerHTML += `<li>${cargarProducto.value} : $${ingresarPrecio.value}</li>`;
 
   total?.innerHTML = Number(suma.value);
   //ver video frontend 7, 1hora 20
 
   //vaciar los campos de entrada
-  producto.value = "";
-  precio.value = "";
+  cargarProducto.value = "";
+  ingresarPrecio.value = "";
 };
 
 const calcularTotal = () => {
   suma = 0;
-  for (let i: number = 0; i < precios.length; i++) {
+  for (let i: number = 0; i < totalPrecios.length; i++) {
     suma += Number(precios[i]);
   }
   total?.innerHTML = suma;
@@ -38,7 +39,7 @@ const vaciarLista = () => {
 };
 //agregar eventos a los botones
 agregar?.addEventListener("click", agregarAlCarrito);
-calcular?.addEventListener("click", calcularTotal);
+calcularCompra?.addEventListener("click", calcularTotal);
 vaciar?.addEventListener("click", vaciarLista);
 
 /* 

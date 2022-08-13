@@ -9,15 +9,17 @@ let vaciar = document.getElementById("vaciar");
 //let totalProductos: string[] = [];
 //let totalPrecios: number[] = [];
 //let suma: number = 0;
+let descuentoPalabra = document.getElementById("descuentoPalabra");
 
 //metodo push para agregar un elemento al final del arreglo (asignar evento),
-const agregarAlCarrito = () => {
+/*const agregarAlCarrito = () => {
   totalProductos.push(cargarProducto.value);
   totalPrecios.push(Number(ingresarPrecio.value));
-
   lista?.innerHTML += `<li>${cargarProducto.value} : $${ingresarPrecio.value}</li>`;
+  cargarProducto.value = "";
+  ingresarPrecio.value =""; */
 
-  total?.innerHTML = Number(suma.value);
+  //total?.innerHTML = Number(suma.value);
   //ver video frontend 7, 1hora 20
 
   //vaciar los campos de entrada
@@ -25,22 +27,32 @@ const agregarAlCarrito = () => {
   ingresarPrecio.value = "";
 };
 
-const calcularTotal = () => {
+/*const calcularTotal = () => {
   suma = 0;
   for (let i: number = 0; i < totalPrecios.length; i++) {
-    suma += Number(precios[i]);
+    suma += Number(totalPrecios[i]);
   }
-  total?.innerHTML = suma;
+  total?.innerHTML = suma;*/
 };
 
 const vaciarLista = () => {
   lista?.innerHTML = "";
   total.innerHTML = "";
+
+ const verDescuento = () => {
+  if (suma < 2500) {
+    descuentoPalabra.value = "";
+    descuentoPalabra?.innerHTML += `<li> Su monto total es inferior a $2500 </li>`;
+  } else {
+    descuentoPalabra.value = "";
+    descuentoPalabra?.innerHTML += `<li>¡Tiene un descuento de 10%!" </li>`;
+  }
 };
 //agregar eventos a los botones
 agregar?.addEventListener("click", agregarAlCarrito);
-calcularCompra?.addEventListener("click", calcularTotal);
+agregar?.addEventListener("click", calcularTotal);
 vaciar?.addEventListener("click", vaciarLista);
+botonDescuento?.addEventListener("click", verDescuento);
 
 /* 
 function calcularCompra(
